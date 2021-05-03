@@ -32,10 +32,9 @@ static bool send_map(uint8_t x, uint8_t y, const uint8_t *buf) {
     msg.y = y;
     const uint8_t *src = buf;
     for (int i=0; i<32; ++i) {
-	msg.d[i] = (*src++) & 0xf;
-	msg.d[i] |= (*src++) << 4;
+	msg.d[i] = (src[i*2] << 4) | src[i*2+1];
     }
-    return dev_write((const uint8_t*)&msg, 37);
+    return dev_write((const uint8_t*)&msg, 35);
 }
 
 bool open_device(const char *path) {

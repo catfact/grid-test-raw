@@ -6,7 +6,7 @@
 #include <thread>
 #include <chrono>
 
-uint8_t led_buf[64];
+uint8_t quad_led_buf[64];
 
 monome_t *m;
 
